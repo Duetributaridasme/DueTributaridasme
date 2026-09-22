@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Dueti Tributário RO — serviços contábeis, tributários e suporte para empresas em Porto Velho, Rondônia.">
+  <title>Dueti Tributário RO | Contabilidade e Assessoria</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #123b5d;
+      --secondary: #1b7895;
+      --accent: #f0b44d;
+      --light: #f4f7fa;
+      --dark: #13212b;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--dark);
+      background: #fff;
+    }
+
+    .navbar {
+      background: rgba(18, 59, 93, .97);
+      backdrop-filter: blur(8px);
+    }
+
+    .navbar-brand span { color: var(--accent); }
+    .navbar .nav-link {
+      color: rgba(255,255,255,.85);
+      font-weight: 500;
+    }
+    .navbar .nav-link:hover { color: #fff; }
+
+    .hero {
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      background:
+        linear-gradient(115deg, rgba(18,59,93,.98), rgba(27,120,149,.86)),
+        radial-gradient(circle at top right, rgba(240,180,77,.35), transparent 40%);
+      padding: 120px 0 80px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 50px;
+      padding: .55rem 1rem;
+      font-size: .9rem;
+    }
+
+    .hero h1 { font-weight: 800; letter-spacing: -.04em; }
+    .hero h1 span { color: var(--accent); }
+
+    .hero-card {
+      border: 1px solid rgba(255,255,255,.2);
+      background: rgba(255,255,255,.10);
+      border-radius: 24px;
+      padding: 2rem;
+      box-shadow: 0 25px 70px rgba(0,0,0,.15);
+    }
+
+    .section-padding { padding: 90px 0; }
+    .section-title { color: var(--primary); font-weight: 800; }
+    .section-kicker {
+      color: var(--secondary);
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .feature-card, .service-card, .info-card {
+      border: 0;
+      border-radius: 18px;
+      box-shadow: 0 12px 35px rgba(18,59,93,.08);
+      transition: transform .25s ease, box-shadow .25s ease;
+      height: 100%;
+    }
+
+    .feature-card:hover, .service-card:hover, .info-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 45px rgba(18,59,93,.14);
+    }
+
+    .icon-box {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      color: var(--primary);
+      background: rgba(27,120,149,.12);
+      font-size: 1.5rem;
+    }
+
+    .service-card .icon-box {
+      color: #fff;
+      background: var(--primary);
+    }
+
+    .about-panel {
+      background: var(--light);
+      border-radius: 28px;
+      padding: 2.5rem;
+    }
+
+    .stat-card {
+      border-left: 4px solid var(--accent);
+      background: #fff;
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+    }
+
+    .contact-section {
+      color: #fff;
+      background: linear-gradient(120deg, var(--primary), var(--secondary));
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: .85rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .contact-item i {
+      color: var(--accent);
+      font-size: 1.25rem;
+      margin-top: .15rem;
+    }
+
+    .btn-accent {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--dark);
+      font-weight: 700;
+    }
+
+    .btn-accent:hover {
+      background: #ffc96c;
+      border-color: #ffc96c;
+      color: var(--dark);
+    }
+
+    .btn-outline-light:hover { color: var(--primary); }
+
+    footer {
+      background: #0c283e;
+      color: rgba(255,255,255,.7);
+    }
+
+    .small-muted { color: #6c7a86; font-size: .92rem; }
+    .badge-soft {
+      background: rgba(27,120,149,.1);
+      color: var(--secondary);
+      font-weight: 700;
+    }
+
+    @media (max-width: 991px) {
+      .hero { text-align: center; }
+      .hero-card { margin-top: 2rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold fs-4" href="#inicio">
+        Dueti <span>Tributário RO</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+              aria-controls="menu" aria-expanded="false" aria-label="Abrir menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="#empresa">Empresa</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header id="inicio" class="hero">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7">
+          <div class="hero-badge mb-4">
+            <i class="bi bi-patch-check-fill"></i>
+            Empresa ativa • CRC RO-000791/O
+          </div>
+
+          <h1 class="display-4 mb-4">
+            Contabilidade estratégica para o crescimento da sua empresa.
+          </h1>
+
+          <p class="lead mb-4">
+            Mais organização, segurança fiscal e clareza para você tomar decisões.
+            A Dueti Tributário RO oferece suporte contábil com proximidade,
+            responsabilidade e visão de negócio.
+          </p>
+
+          <div class="d-flex flex-wrap gap-3 justify-content-lg-start justify-content-center">
+            <a href="#contato" class="btn btn-accent btn-lg px-4">
+              Fale conosco <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+            <a href="#servicos" class="btn btn-outline-light btn-lg px-4">
+              Conheça os serviços
+            </a>
+          </div>
+
+          <div class="d-flex flex-wrap gap-4 mt-5 small">
+            <span><i class="bi bi-check-circle-fill text-warning me-2"></i>Atendimento personalizado</span>
+            <span><i class="bi bi-check-circle-fill text-warning me-2"></i>Foco em conformidade</span>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="hero-card">
+            <div class="d-flex align-items-center gap-3 mb-4">
+              <div class="icon-box bg-white text-primary">
+                <i class="bi bi-calculator"></i>
+              </div>
+              <div>
+                <h5 class="mb-0">Dueti Tributário RO</h5>
+                <small class="text-white-50">Sociedade Simples</small>
+              </div>
+            </div>
+
+            <h3 class="fw-bold mb-3">Seu negócio em boas mãos.</h3>
+            <p class="text-white-50 mb-4">
+              Soluções contábeis para apoiar a rotina, a regularidade e o planejamento
+              da sua empresa.
+            </p>
+
+            <div class="row g-3">
+              <div class="col-6">
+                <div class="border rounded-3 p-3 border-light border-opacity-25">
+                  <div class="h4 fw-bold mb-1">2018</div>
+                  <small class="text-white-50">Ano de fundação</small>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="border rounded-3 p-3 border-light border-opacity-25">
+                  <div class="h4 fw-bold mb-1">Ativa</div>
+                  <small class="text-white-50">Situação cadastral</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section-padding bg-light">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card feature-card p-4">
+            <div class="icon-box mb-3"><i class="bi bi-shield-check"></i></div>
+            <h5>Segurança e conformidade</h5>
+            <p class="small-muted mb-0">Apoio para manter as obrigações contábeis e fiscais organizadas.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card feature-card p-4">
+            <div class="icon-box mb-3"><i class="bi bi-graph-up-arrow"></i></div>
+            <h5>Visão para o crescimento</h5>
+            <p class="small-muted mb-0">Informações contábeis que ajudam sua empresa a planejar os próximos passos.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card feature-card p-4">
+            <div class="icon-box mb-3"><i class="bi bi-people"></i></div>
+            <h5>Atendimento próximo</h5>
+            <p class="small-muted mb-0">Relacionamento profissional, comunicação clara e suporte às necessidades do negócio.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicos" class="section-padding">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="section-kicker">O que fazemos</div>
+        <h2 class="section-title display-6 mt-2">Serviços de contabilidade</h2>
+        <p class="text-secondary mx-auto" style="max-width: 700px;">
+          Estrutura e informação para ajudar sua empresa a manter a rotina contábil
+          organizada e tomar decisões com mais confiança.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="card service-card p-4">
+            <div class="icon-box mb-4"><i class="bi bi-journal-check"></i></div>
+            <h5>Contabilidade geral</h5>
+            <p class="text-secondary">Escrituração, organização de documentos e acompanhamento das informações contábeis.</p>
+            <span class="badge badge-soft align-self-start">Rotina contábil</span>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="card service-card p-4">
+            <div class="icon-box mb-4"><i class="bi bi-receipt-cutoff"></i></div>
+            <h5>Assessoria tributária</h5>
+            <p class="text-secondary">Orientação para a organização fiscal e acompanhamento das obrigações tributárias.</p>
+            <span class="badge badge-soft align-self-start">Tributos</span>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="card service-card p-4">
+            <div class="icon-box mb-4"><i class="bi bi-building-check"></i></div>
+            <h5>Suporte empresarial</h5>
+            <p class="text-secondary">Apoio informativo para empresas que buscam mais controle e previsibilidade.</p>
+            <span class="badge badge-soft align-self-start">Gestão</span>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="card service-card p-4">
+            <div class="icon-box mb-4"><i class="bi bi-file-earmark-text"></i></div>
+            <h5>Obrigações acessórias</h5>
+            <p class="text-secondary">Acompanhamento e organização de informações necessárias às declarações e entregas aplicáveis.</p>
+            <span class="badge badge-soft align-self-start">Regularidade</span>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="card service-card p-4">
+            <div class="icon-box mb-4"><i class="bi bi-bar-chart-line"></i></div>
+            <h5>Relatórios e indicadores</h5>
+            <p class="text-secondary">Informações financeiras e contábeis para apoiar o acompanhamento dos resultados.</p>
+            <span class="badge badge-soft align-self-start">Informação</span>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="card service-card p-4">
+            <div class="icon-box mb-4"><i class="bi bi-chat-dots"></i></div>
+            <h5>Orientação contábil</h5>
+            <p class="text-secondary">Atendimento para esclarecer dúvidas e apoiar decisões relacionadas à empresa.</p>
+            <span class="badge badge-soft align-self-start">Consultoria</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre" class="section-padding bg-light">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <div class="section-kicker">Sobre a empresa</div>
+          <h2 class="section-title display-6 mt-2 mb-4">Experiência, organização e proximidade.</h2>
+          <p class="text-secondary">
+            A <strong>Dueti Tributário RO Sociedade Simples</strong> foi fundada em
+            1º de março de 2018 e está localizada em Porto Velho, Rondônia.
+            Sua atividade principal é a prestação de serviços de contabilidade,
+            conforme o CNAE 69.20-6-01.
+          </p>
+          <p class="text-secondary">
+            Nosso propósito é contribuir para que empresas tenham informações mais
+            organizadas e suporte profissional para lidar com sua rotina contábil.
+          </p>
+
+          <div class="d-flex gap-3 mt-4">
+            <div class="icon-box"><i class="bi bi-check2-circle"></i></div>
+            <div>
+              <h6 class="mb-1">Compromisso profissional</h6>
+              <p class="small-muted mb-0">Atuação com responsabilidade, clareza e foco nas necessidades de cada cliente.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="about-panel">
+            <h5 class="fw-bold mb-4">Nossos números e registros</h5>
+            <div class="row g-3">
+              <div class="col-6">
+                <div class="stat-card">
+                  <div class="h4 fw-bold mb-1 text-primary">2018</div>
+                  <small class="small-muted">Fundação</small>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="stat-card">
+                  <div class="h4 fw-bold mb-1 text-primary">ME</div>
+                  <small class="small-muted">Porte empresarial</small>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="stat-card">
+                  <div class="h4 fw-bold mb-1 text-primary">Simples</div>
+                  <small class="small-muted">Regime informado</small>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="stat-card">
+                  <div class="h4 fw-bold mb-1 text-primary">Ativa</div>
+                  <small class="small-muted">Situação cadastral</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="empresa" class="section-padding">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="section-kicker">Informações institucionais</div>
+        <h2 class="section-title display-6 mt-2">Dados da empresa</h2>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="card info-card p-4">
+            <h5 class="fw-bold mb-4"><i class="bi bi-building me-2 text-primary"></i>Registro empresarial</h5>
+            <dl class="row mb-0">
+              <dt class="col-sm-5">Razão social</dt>
+              <dd class="col-sm-7">Dueti Tributario Ro Sociedade Simples</dd>
+
+              <dt class="col-sm-5">Nome fantasia</dt>
+              <dd class="col-sm-7">Dueti Tributario Ro</dd>
+
+              <dt class="col-sm-5">CNPJ</dt>
+              <dd class="col-sm-7">29.960.989/0001-67</dd>
+
+              <dt class="col-sm-5">CRC</dt>
+              <dd class="col-sm-7">RO-000791/O</dd>
+
+              <dt class="col-sm-5">Natureza jurídica</dt>
+              <dd class="col-sm-7">Sociedade Simples Pura</dd>
+
+              <dt class="col-sm-5">Capital social</dt>
+              <dd class="col-sm-7">R$ 2.000,00</dd>
+
+              <dt class="col-sm-5">Tipo</dt>
+              <dd class="col-sm-7">Matriz</dd>
+
+              <dt class="col-sm-5">Situação</dt>
+              <dd class="col-sm-7"><span class="badge text-bg-success">Ativa</span></dd>
+            </dl>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card info-card p-4">
+            <h5 class="fw-bold mb-4"><i class="bi bi-people me-2 text-primary"></i>Sócios e administradores</h5>
+            <div class="mb-3">
+              <h6 class="mb-1">Cesar Augusto de Almeida Dueti</h6>
+              <small class="text-secondary">Sócio com Capital</small>
+            </div>
+            <div class="mb-3">
+              <h6 class="mb-1">Fabio Resende de Almeida Dueti</h6>
+              <small class="text-secondary">Sócio-Administrador</small>
+            </div>
+            <div class="mb-4">
+              <h6 class="mb-1">Matheus Lima de Oliveira</h6>
+              <small class="text-secondary">Sócio com Capital</small>
+            </div>
+
+            <div class="alert alert-light border mb-0">
+              <i class="bi bi-person-badge me-2"></i>
+              <strong>Responsável:</strong> Sócio-Administrador
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="card info-card p-4">
+            <h5 class="fw-bold mb-3"><i class="bi bi-geo-alt me-2 text-primary"></i>Localização</h5>
+            <p class="mb-1">Rua Joaquim Nabuco, 2698 — Anexo Fundos, Pavimento Superior, Sala 04</p>
+            <p class="mb-1">Bairro São Cristóvão • Porto Velho/RO</p>
+            <p class="mb-3">CEP: 76804-074</p>
+            <a class="btn btn-outline-primary" target="_blank" rel="noopener"
+               href="https://www.google.com/maps/search/?api=1&query=Rua+Joaquim+Nabuco+2698+Porto+Velho+RO">
+              <i class="bi bi-map me-2"></i>Ver no Google Maps
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="section-padding contact-section">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6">
+          <div class="section-kicker text-warning">Vamos conversar</div>
+          <h2 class="display-6 fw-bold mt-2 mb-4">Conte com a Dueti Tributário RO.</h2>
+          <p class="text-white-50">
+            Entre em contato para conhecer melhor nossos serviços e conversar sobre
+            as necessidades contábeis da sua empresa.
+          </p>
+
+          <div class="mt-4">
+            <div class="contact-item">
+              <i class="bi bi-telephone-fill"></i>
+              <div>
+                <strong>Telefone</strong><br>
+                <a class="text-white text-decoration-none" href="tel:+556832244109">(68) 3224-4109</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <i class="bi bi-envelope-fill"></i>
+              <div>
+                <strong>E-mail</strong><br>
+                <a class="text-white text-decoration-none" href="mailto:lucas@assessoriadecontbr.online">
+                  lucas@assessoriadecontbr.online
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <i class="bi bi-geo-alt-fill"></i>
+              <div>
+                <strong>Endereço</strong><br>
+                Rua Joaquim Nabuco, 2698 — São Cristóvão<br>
+                Porto Velho/RO — 76804-074
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="bg-white text-dark rounded-4 p-4 p-md-5 shadow">
+            <h4 class="fw-bold mb-3">Solicite um contato</h4>
+            <p class="text-secondary">Preencha os dados abaixo. O botão abrirá uma mensagem pronta no seu aplicativo de e-mail.</p>
+
+            <form action="mailto:lucas@assessoriadecontbr.online" method="post" enctype="text/plain">
+              <div class="mb-3">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" id="nome" name="Nome" class="form-control" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="email" id="email" name="Email" class="form-control" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="mensagem" class="form-label">Como podemos ajudar?</label>
+                <textarea id="mensagem" name="Mensagem" class="form-control" rows="4" required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary w-100">
+                Enviar solicitação <i class="bi bi-send ms-2"></i>
+              </button>
+            </form>
+            <small class="text-secondary d-block mt-3">
+              Observação: o formulário usa o aplicativo de e-mail padrão do dispositivo.
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-4">
+    <div class="container">
+      <div class="row align-items-center g-3">
+        <div class="col-md-7">
+          <strong class="text-white">Dueti Tributário RO</strong><br>
+          <small>Dueti Tributario Ro Sociedade Simples • CNPJ 29.960.989/0001-67</small>
+        </div>
+        <div class="col-md-5 text-md-end">
+          <small>© <span id="ano"></span> — Todos os direitos reservados.</small>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById("ano").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
